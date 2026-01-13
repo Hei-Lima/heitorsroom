@@ -5,19 +5,46 @@ services:
     image: postgres:16-alpine
     container_name: heitorsroom-db
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: heitorsroom
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
+      POSTGRES_DB: ${DB_NAME:-heitorsroom}
     ports:
-      - "5432:5432"
+      - "${DB_PORT:-5432}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./backend/migration.sql:/docker-entrypoint-initdb.d/migration.sql
+      - ./migration.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-postgres}"]
       interval: 10s
       timeout: 5s
       retries: 5
+    networks:
+      - heitorsroom-network
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: heitorsroom-app
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: ${DB_NAME:-heitorsroom}
+      DB_USER: ${DB_USER:-postgres}
+      DB_PASSWORD: ${DB_PASSWORD:-postgres}
+      API_TOKEN: ${API_TOKEN}
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - heitorsroom-network
+    restart: unless-stopped
+
+networks:
+  heitorsroom-network:
+    driver: bridge
 
 volumes:
   postgres_data:
