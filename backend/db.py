@@ -1,5 +1,5 @@
 import psycopg
-from models import environment
+from models import environment, message
 
 
 class Db():
@@ -38,7 +38,36 @@ class Db():
         except Exception:
             self.conn.rollback()
             raise
-        
+    
+    def add_message(self, msg: message.Message):
+        query = "INSERT INTO message (message, username, timestamp) VALUES (%s, %s, %s)"
+        try:
+            with self.conn.cursor() as cur:
+                cur.execute(query, (msg.message, msg.username, msg.timestamp))
+            self.conn.commit()
+        except Exception:
+            self.conn.rollback()
+            raise
+
+    def get_message(self, id: int) -> message.Message:
+        query = "SELECT id, message, username, timestamp FROM message WHERE ID = (%s)"
+        try:
+            with self.conn.cursor() as cur:
+                cur.execute(query, (id,))
+                qry = cur.fetchone()
+                if qry is None:
+                    raise ValueError("No message data found")
+                msg = message.Message(
+                    id=qry[0],
+                    message=qry[1],
+                    username=qry[2],
+                    timestamp=qry[3]
+                )
+                return msg
+        except Exception:
+            self.conn.rollback()
+            raise
+
     def close(self):
         self.conn.close()
 

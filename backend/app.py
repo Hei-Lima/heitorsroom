@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException, Depends
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
-from models import environment
+from models import environment, message
 from db import Db
 import dotenv
 import os
@@ -37,3 +37,14 @@ async def get_metric() -> environment.EnvironmentResponseDto:
     except ValueError:
         raise HTTPException(status_code=404, detail="No environment data found")
     return environment.entityToRes(env)
+
+@app.post("/message")
+async def send_message(req: message.MessageRequestDto) -> str:
+    env = message.reqToEntity(req)
+    db.add_message(env)
+    return "Message sended!"
+
+@app.get("/message/{id}")
+async def get_message(id: int) -> message.MessageResponseDto:
+    msg = message.entityToRes(db.get_message(id))
+    return msg
