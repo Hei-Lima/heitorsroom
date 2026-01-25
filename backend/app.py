@@ -54,7 +54,7 @@ async def send_message(req: message.MessageRequestDto) -> str:
     return "Message sended!"
 
 @app.get("/message/{id}")
-async def get_message(id: int) -> message.MessageResponseDto:
+async def get_message(id: int, token: str = Depends(verify_token)) -> message.MessageResponseDto:
     try:
         msg = message.entityToRes(db.get_message(id))
         return msg

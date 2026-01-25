@@ -42,7 +42,6 @@
 
     <script src="message.js"></script>
     <script>
-        // Toca o áudio no primeiro clique do usuário (requerido por navegadores modernos)
         const bgAudio = document.getElementById('bgAudio');
         const playAudio = () => {
             bgAudio.muted = false;
@@ -51,7 +50,6 @@
         };
         document.addEventListener('click', playAudio);
         
-        // Tenta tocar automaticamente (alguns navegadores permitem)
         bgAudio.muted = false;
         bgAudio.play().catch(e => console.log('Autoplay requires user interaction'));
     </script>

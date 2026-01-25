@@ -6,7 +6,7 @@ const charCount = document.getElementById('charCount');
 const messageEl = document.getElementById('message');
 if (messageEl && charCount) {
     const updateCount = () => {
-        const remaining = 140 - (messageEl.value?.length || 0);
+        const remaining = 80 - (messageEl.value?.length || 0);
         charCount.textContent = String(remaining);
     };
     messageEl.addEventListener('input', updateCount);
@@ -20,8 +20,8 @@ if (form) {
         const message = document.getElementById('message').value;
         const username = document.getElementById('username') ? document.getElementById('username').value : 'anonymous';
 
-        if (message.length > 140) {
-            if (responseP) responseP.textContent = 'Message must be 140 characters or less.';
+        if (message.length > 80) {
+            if (responseP) responseP.textContent = 'Message must be 80 characters or less.';
             return;
         }
 
