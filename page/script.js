@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function fetchDataAndDisplay() {
-    const API_BASE = 'http://127.0.0.1:8000';
+    const API_BASE = 'https://room.heitorlima.tech';
     const url = `${API_BASE}/environment/lastmetric`;
     
     try {
