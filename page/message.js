@@ -37,8 +37,11 @@ if (form) {
 
             if (response.ok) {
                 const successText = "heitor was contacted. he's alerted of your existence";
-                document.body.classList.add('solo-message');
-                document.body.innerHTML = `<div class="msg-box"><p>${successText}</p></div>`;
+                
+                const boxSection = document.querySelector('.box.data-section');
+                if (boxSection) {
+                    boxSection.innerHTML = `<div class="msg-box"><p>${successText}</p></div>`;
+                }
             } else {
                 if (responseP) responseP.textContent = 'connection with heitor was unsuccessful. is he away?';
             }
