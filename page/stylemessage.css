@@ -1,0 +1,239 @@
+body {
+    background-image: url("media/bggif.gif");
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.message-img {
+    width: 500px;
+    max-width: 90%;
+    height: auto;
+    display: block;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+}
+
+.box {
+    background-color: #000027;
+    padding: 1.5rem;
+    margin: 20px auto;
+    max-width: 700px;
+    width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+label {
+    font-family: "Special Elite", system-ui;
+    color: #E0FBFC;
+}
+
+textarea {
+    background-color: #000027;
+    color: #E0FBFC;
+    padding: 0.75rem;
+    font-family: "Special Elite", system-ui;
+    resize: vertical;
+    min-height: 100px;
+    border: 1px solid #E0FBFC;
+}
+
+input {
+    background-color: #000027;
+    color: #E0FBFC;
+    padding: 0.75rem;
+    font-family: "Special Elite", system-ui;
+    resize: vertical;
+    border: 1px solid #E0FBFC;
+}
+
+button[type="submit"] {
+    align-self: start;
+    background-color: #ff3c3c;
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1rem;
+    font-family: "Special Elite", system-ui;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    
+    img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+    }
+    
+    .box {
+        padding: 1.25rem;
+        margin: 15px auto;
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    form {
+        gap: 1rem;
+    }
+    
+    label {
+        font-size: 1rem;
+        display: block;
+        margin-bottom: 0.25rem;
+    }
+    
+    textarea,
+    input {
+        font-size: 16px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    button[type="submit"] {
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 640px) {
+    body {
+        padding: 10px;
+    }
+    
+    img {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .box {
+        padding: 1.15rem;
+        margin: 12px auto;
+        width: 100%;
+    }
+    
+    form {
+        gap: 0.85rem;
+    }
+    
+    label {
+        font-size: 0.95rem;
+    }
+    
+    textarea {
+        min-height: 100px;
+        padding: 0.75rem;
+        font-size: 16px;
+    }
+    
+    input {
+        padding: 0.75rem;
+        font-size: 16px;
+    }
+    
+    button[type="submit"] {
+        width: 100%;
+        padding: 0.7rem;
+    }
+    
+    .char-info {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 8px;
+    }
+    
+    img {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .box {
+        padding: 1rem;
+        margin: 10px auto;
+        width: 100%;
+    }
+    
+    form {
+        gap: 0.75rem;
+    }
+    
+    label {
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+    
+    textarea {
+        min-height: 90px;
+        padding: 0.65rem;
+        font-size: 16px;
+        border: 1px solid #E0FBFC;
+    }
+    
+    input {
+        padding: 0.65rem;
+        font-size: 16px;
+        border: 1px solid #E0FBFC;
+    }
+    
+    button[type="submit"] {
+        width: 100%;
+        padding: 0.8rem;
+        font-size: 0.95rem;
+        background-color: #ff3c3c;
+        margin-top: 0.5rem;
+    }
+    
+    .char-info {
+        font-size: 0.8rem;
+        margin-top: 0.5rem;
+    }
+    
+    .msg-box {
+        padding: 1.25rem;
+        margin: 0 12px;
+        font-size: 0.95rem;
+    }
+}
+
+
+
+.char-info {
+    font-family: "Special Elite", system-ui;
+    color: #E0FBFC;
+    font-size: 0.9rem;
+}
+
+.char-info span {
+    color: #ff3c3c;
+    font-weight: 700;
+}
+
+.about-link {
+    color: #E0FBFC;
+    text-decoration: none;
+}
+
+.about-link:visited {
+    color: #E0FBFC;
+}
+
+.about-link:hover {
+    text-decoration: underline;
+}

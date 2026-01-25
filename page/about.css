@@ -1,0 +1,105 @@
+body {
+    background-image: url("media/snak.gif");
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}  
+
+.box {
+    background-color: #000027;
+    color: #E0FBFC;
+    padding: 1.5rem;
+    margin: 20px auto;
+    max-width: 700px;
+    width: 100%;
+    font-family: "Special Elite", system-ui;    
+}
+
+.content-wrapper {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1600px;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    
+    .box {
+        padding: 1.25rem;
+        max-width: 100%;
+        margin: 15px auto;
+    }
+    
+    .plain-text {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    .plain-text p {
+        margin: 1rem 0;
+    }
+    
+    a {
+        word-break: break-word;
+    }
+}
+
+@media (max-width: 640px) {
+    body {
+        padding: 10px;
+    }
+    
+    .box {
+        padding: 1.1rem;
+        margin: 12px auto;
+    }
+    
+    .plain-text {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .plain-text p {
+        margin: 0.85rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 8px;
+    }
+    
+    .content-wrapper {
+        gap: 15px;
+    }
+    
+    .box {
+        padding: 1rem;
+        margin: 10px auto;
+        width: 100%;
+    }
+    
+    .plain-text {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+    
+    .plain-text p {
+        margin: 0.75rem 0;
+    }
+    
+    a {
+        word-break: break-word;
+    }
+}

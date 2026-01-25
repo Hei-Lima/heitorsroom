@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to Heitor's Room - Real-time environmental monitoring with temperature, humidity, and heat index data.">
+    <meta name="keywords" content="environmental monitoring, temperature, humidity, IoT, Heitor">
+    <meta name="theme-color" content="#000027">
+    <meta property="og:title" content="Heitor's Room - Environmental Monitor">
+    <meta property="og:description" content="Real-time environmental data from Heitor's room.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Heitor's Room - Environmental Monitor">
+    <meta name="twitter:description" content="Real-time environmental data from Heitor's room.">
+    <title>Heitor's Room - Environmental Monitor</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="page/favico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="page/favico/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="page/favico/apple-touch-icon.png">
+    <link rel="stylesheet" href="page/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="content-wrapper">
+        <a href="page/message.html">
+        <video width="600" height="600" autoplay loop muted playsinline>
+            <source src="page/media/output3.webm" type="video/webm">
+        </video>
+        </a>
+        <div class="box data-section">
+            <h1>welcome to heitor's room</h1>
+            <h2>environmental conditions</h2>
+            <div id="data">
+                <div class="metric-card temp">
+                    <span class="metric-label">Temperature</span>
+                    <span class="metric-value">--°C</span>
+                </div>
+                <div class="metric-card hum">
+                    <span class="metric-label">Humidity</span>
+                    <span class="metric-value">--%</span>
+                </div>
+                <div class="metric-card heatindex">
+                    <span class="metric-label">Heat Index</span>
+                    <span class="metric-value">--</span>
+                </div>
+            </div>
+            <p class="last-update">last update: <span id="timestamp">--</span></p>
+        </div>
+    </div>
+    
+    <audio id="startAudio" src="page/media/projeto2start.mp3"></audio>
+    <audio id="loopAudio" src="page/media/projeto2.mp3" loop></audio>
+    
+    <script src="page/script.js"></script>
+    <script>
+        const startAudio = document.getElementById('startAudio');
+        const loopAudio = document.getElementById('loopAudio');
+        
+        // Toca o áudio de start quando a página carrega
+        startAudio.play().catch(e => {
+            // Se não conseguir tocar automaticamente, toca no primeiro clique
+            document.body.addEventListener('click', () => {
+                startAudio.play();
+            }, { once: true });
+        });
+        
+        // Quando o áudio de start terminar, começa o loop
+        startAudio.addEventListener('ended', () => {
+            loopAudio.play();
+        });
+    </script>
+    <p style="text-align:center;margin-top:1rem;"><a class="about-link" href="page/about.html">About</a></p>
+</body>
+</html>

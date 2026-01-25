@@ -8,8 +8,8 @@ CREATE TABLE IF NOT EXISTS environment (
 
 CREATE TABLE IF NOT EXISTS message (
     id SERIAL PRIMARY KEY,
-    message VARCHAR(140),
-    username VARCHAR(30),
+    message VARCHAR(80),
+    username VARCHAR(21),
     timestamp TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 

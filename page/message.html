@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Send a message to Heitor on his personal website. Connect and share thoughts with this interactive guestbook.">
+    <meta name="keywords" content="guestbook, message, contact, Heitor, personal website">
+    <meta name="theme-color" content="#000027">
+    <meta property="og:title" content="Heitor's Room - Send Message">
+    <meta property="og:description" content="Connect with Heitor through his interactive guestbook.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Heitor's Room - Send Message">
+    <meta name="twitter:description" content="Connect with Heitor through his interactive guestbook.">
+    <title>Heitor's Room - Send Message</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="favico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favico/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="favico/apple-touch-icon.png">
+    <link rel="stylesheet" href="stylemessage.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+</head>
+<body>
+    <img src="media/mii.gif" alt="Mii character animation" class="message-img">
+
+    <div class="box data-section">
+        <form id="messageForm">
+            <label for="message">connect with heitor</label>
+            <textarea id="message" name="message" rows="4" cols="50" maxlength="140" required></textarea>
+            <label for="username">who are you?</label>
+            <input id="username" name="username" type="text" required />
+            <div class="char-info"><span id="charCount">140</span> characters remaining</div>
+            <button type="submit">send</button>
+            <p id="response" aria-live="polite"></p>
+        </form> 
+    </div>
+
+    <audio autoplay loop>
+        <source src="media/project.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="message.js"></script>
+    <p style="text-align:center;margin-top:1rem;"><a class="about-link" href="about.html">About</a></p>
+</body>
+</html>
