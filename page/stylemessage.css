@@ -225,6 +225,21 @@ button[type="submit"] {
     font-weight: 700;
 }
 
+.msg-box {
+    background-color: #000027;
+    color: #E0FBFC;
+    font-family: "Special Elite", system-ui;
+    padding: 2rem;
+    text-align: center;
+    font-size: 1.1rem;
+    border: none;
+}
+
+.msg-box p {
+    margin: 0;
+    line-height: 1.6;
+}
+
 .about-link {
     color: #E0FBFC;
     text-decoration: none;
